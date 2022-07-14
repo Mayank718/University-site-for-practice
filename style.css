@@ -1,0 +1,458 @@
+* { margin: 0px;
+    padding: 0px;
+    font-family: 'Oswald', sans-serif;
+}
+
+/* --------Nav bar and home page-------- */
+
+.header { min-height: 100vh;
+          width: 100%;
+          background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7)), url('/eduford_img/banner.png');
+          background-position: center;
+          background-size: cover;  /*For full image*/
+          position: relative;
+}
+
+nav { display: flex;
+      padding: 2% 6%; /*Gives padding in nav*/
+      justify-content: space-between;
+      align-items: center;
+}
+
+nav img { width: 150px; }
+
+.nav-links { flex: 1;   /*Makes all the items in navigation bar(logo and list items) go to left*/
+             text-align: right; /*This makes them to go to left and stay properly*/
+}
+
+.nav-links ul li { list-style: none;  /*Removes bullet*/
+                   display: inline-block;  /*Makes the navigation bar items in straight line*/
+                   padding: 8px 12px;  /*Space between navigation bar items*/
+                   position: relative;
+}
+
+.nav-links ul li a { text-decoration: none;
+                     color: white;
+                     font-size: 20px;
+}
+
+.nav-links ul li::after {    /*Used to place an underline under the navigation bar items*/
+                          content: "";
+                          width: 0%;  /*Gives the width of the red line in navgation bar*/
+                          height: 2px;
+                          background: #f44336;
+                          display: block;  /*This brings the line*/
+                          margin: auto;  /*This give the effect to move from between*/
+                          transition: 0.5s;  /*Gives the effect*/
+}
+
+.nav-links ul li:hover::after { width: 100%; }
+
+.text-box { width: 90%;
+            color: white;
+            /* border: 2px solid #f44336; */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            text-align: center;
+            transform: translate(-50%, -50%); /*Brings the div box in the center of the background*/
+}
+
+.text-box h1 { font-size: 62px; }
+
+.text-box p { color: white;
+              font-size: 15px;
+              margin: 10px 0px 14px; /*Top left-right Bottom*/
+}
+
+.hero-btn { display: inline-block;
+            text-decoration: none;
+            color: white;
+            border: 1px solid white;
+            padding: 12px 34px;
+            font-size: 13px;
+            background: transparent; /*Gives the background of the button transparent*/
+            position: relative;
+            cursor: pointer;
+}
+
+.hero-btn:hover { border: red;
+                  background-color: red;
+                  transition: 1s;  /*Gives the effect to the button*/
+}
+
+nav .fas { display: none; }   /*Hides the icons from the window screen on main page*/
+
+@media(max-width: 700px) {
+    .text-box h1 { font-size: 20px; }
+
+    .nav-links ul li { display: block; } /*It makes the navigation list items in a vertical line*/
+
+    .nav-links { position: fixed;  /*It makes the whole nav bar items imperfect so we have to set it by using these tags below*/
+                 background-color: #f44336;
+                 height: 100vh;
+                 width: 200px;
+                 top: 0px;  /*Makes the red box cover the full area from the top*/
+                 right: -201px;  /*We added -200px to hide nav menu bar from small*/
+                 text-align: left;  /*Makes the navigation list items to take the left space vertically*/
+                 z-index: 2;  /*As the h1 p and button are overlapping we have to use this tag*/
+                 transition: 1s;
+    }
+
+    nav .fas { display: block;
+              cursor: pointer;
+              margin: 10px;
+              font-size: 22px;
+              color: white;
+    }
+
+    .nav-links ul { padding: 30px; }
+}
+
+/* --------Courses-------- */
+/*It will start after the nav section and main page section*/
+
+.courses { width: 80%;
+           /* border: #f44336 2px solid; */
+           margin: auto;    /*Puts the courses box in the center of the page*/
+           text-align: center;
+           padding-top: 100px;  /*Gives padding from the top not margin remember*/
+}
+
+h1 { font-size: 36px;
+     font-weight: 600;
+}
+
+p { font-size: 14px;
+    font-weight: 300;
+    color: darkblue;
+    padding: 10px;
+    line-height: 22px;   /*It determines the height between the line or sentences in the p tag*/
+}
+
+.row { margin-top: 5%;  /*Gives margin from the p tag*/    /*This row property is also used in later sections*/
+       /* border: 2px solid red; */
+       display: flex;
+       justify-content: space-between;
+}
+
+.course-col { flex-basis: 31%;   /*It gives the size of each box of course-col from each other divided properly*/
+              background: rgb(231, 209, 252);
+              border-radius: 10px;
+              margin-bottom: 5%;
+              padding: 20px 12px;
+              box-sizing: border-box;
+}
+
+h3 { font-weight: 600;
+     text-align: center;
+     margin: 10px 0px;
+}
+
+.course-col:hover { box-shadow: 0px 0px 20px 0px rgb(168, 105, 231); }  /*box=shadow : offset-x offset-y blur-radius spread-radius color*/
+
+@media(max-width: 700px) {
+     .row { flex-direction: column; }
+}
+
+/* -------Campus------- */
+/* It will start after the course section */
+
+.campus { width: 80%;
+           /* border: #f44336 2px solid; */
+           margin: auto;    /*Puts the campus box in the center of the page*/
+           text-align: center;
+           padding-top: 50px;  /*Gives padding from the top not margin remember*/
+}
+
+.campus-col { flex-basis: 32%;   /*It gives the size to the box of campus-col from each other divided properly*/
+              /* border: 2px solid red; */
+              border-radius: 10px;
+              margin-bottom: 30px;
+              position: relative;
+              overflow: hidden;   /*The overflow property specifies what happens if content overflows an element's box. With the hidden value, the overflow is clipped, and the rest of the content is hidden*/
+}
+
+.campus-col img { width: 100%; } /*Gives the image proper size in the box*/
+
+.layer { background: transparent;
+         height: 100%;
+         width: 100%;
+         position: absolute;  /*Makes the h3 tag LONDON gone from the box*/
+         top: 0px;     /*Gives h3 top to bring back the h3 tag*/   
+         left: 0px;    /*Gives h3 left to bring back the h3 tag*/
+         transition: 0.5s;
+}
+
+.layer:hover { background: rgba(238, 80, 80, 0.7); }
+
+.layer h3 { width: 100%;  /*Centers the h3 text*/
+            font-weight: 500;
+            color: white;
+            font-size: 26px;
+            bottom: 0px;
+            left: 50%;
+            transform: translateX(-50%);  /*Bottom and center from the x-axis*/
+            position: absolute;  /*Makes the h3 text go at the bottom*/
+            opacity: 0;  /*Makes the text invisible*/
+            transition: 0.5s;
+}
+
+.layer:hover h3 { opacity: 1;  /*Brings back the invisible text*/
+                  bottom: 40%;  /*This much lift it will have or how it will go up from the bottom*/
+ }
+
+/* ------Facilities------ */
+
+.facilities { width: 80%;
+              /* border: #f44336 2px solid; */
+              margin: auto;    /*Puts the facilities box in the center of the page*/
+              text-align: center;
+              padding-top: 100px;  /*Gives padding from the top not margin remember*/
+}
+
+.facilities-col { flex-basis: 31%;  /*It gives the size to the box of facilities-col from each other divided properly*/
+                  border-radius: 10px;
+                  text-align: left;
+                  margin-bottom: 5%;  /*It is added so that it will look good in the phone size*/
+}
+
+.facilities-col img { width: 100%;
+                      border-radius: 10px;
+}
+
+.facilities-col p { padding: 0px; }
+
+.facilities-col h3 { margin-top: 15px;
+                     margin-bottom: 16px;
+                     text-align: left;
+}
+
+/* -----Testimonials------ */
+
+.testimonials { width: 80%;          
+              margin: auto;    /*Puts the testimonials box in the center of the page*/
+              text-align: center;
+              padding-top: 100px;  /*Gives padding from the top not margin remember*/
+}  
+
+.testimonials-col { flex-basis: 44%; 
+                    border-radius: 10px;
+                    margin-bottom: 5%;
+                    text-align: left;
+                    background: #fff3f3;
+                    padding: 25px; 
+                    cursor: pointer;
+                    display: flex;   /*To make them horizontal*/
+}
+
+.testimonials-col img { height: 40px;
+                        border-radius: 50%;
+                        margin-left: 5px;   /*Give space between the image and text*/
+                        margin-right: 30px;  /*Give space between the image and text*/
+}
+
+.testimonials-col p { padding: 0px; }
+
+.testimonials-col h3 { text-align: left; 
+                       margin-top: 15px;
+}
+
+.testimonials-col .fas { color: red; }
+
+.testimonials-col .far { color: red; }
+
+@media(max-width: 700px) {  
+    .testimonials-col img {  
+        margin-left: 0px;   
+        margin-right: 15px;  
+    }
+}
+
+/* -----Call us----- */
+
+.cta { margin: 100px auto; 
+       width: 80%;   /*We have to give width or height then only margin auto will work*/
+       border: 2px solid red;
+       background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url('/eduford_img/banner2.jpg');
+       background-position: center;
+       background-size: cover;
+       border-radius: 10px;
+       padding: 100px 0px;
+       text-align: center;
+}
+
+.cta h1 {  color: white; 
+           margin-bottom: 40px;
+           padding: 0px;
+}
+
+@media(max-width: 700px) {
+     .cta h1 {
+         font-size: 24px;
+     }
+}
+
+/* -----Footer----- */
+
+.footer {  width: 100%;
+           padding: 30px 0px;
+           text-align: center;
+}
+
+.footer h4 {  margin-bottom: 25px;
+              margin-top: 20px;
+              font-weight: 600;
+}
+
+.fab { cursor: pointer; 
+       margin: 0px 13px;
+       padding: 18px 0px;
+       color: red;
+}
+
+.fa-heart { color: #f44336; }
+
+/* --------About Us page-------- */
+
+.sub-header {  height: 50vh;  /*We have halved the main background*/
+               width: 100%;
+               background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url('/eduford_img/background.jpg');
+               background-position: center;
+               background-size: cover;
+               text-align: center;
+               color: white;
+}
+
+.sub-header h1 {  margin-top: 100px; }
+
+.about-us {  width: 80%;
+             margin: auto;
+             padding-top: 80px;
+             padding-bottom: 50px;
+}
+
+.about-col { padding: 30px 2px;
+             flex-basis: 48%;
+}
+
+.about-col img { width: 100% }
+
+.about-col h1 { padding-top: 0px; }
+
+.about-col p { padding: 15px 0px 25px; } /*Top left-right bottom*/ 
+
+.red-btn { border: 2px solid red;
+           background: transparent;
+           color: red;
+}
+
+.red-btn:hover { color: white; }
+
+/* ---------Blog content page---------- */
+
+.blog-content {  width: 80%;  
+                 margin: auto;
+                 padding: 60px 0px;   /*Here padding is given not margin*/
+                 /* border: 2px solid red; */
+}
+
+.blog-left { flex-basis: 65%; }
+
+.blog-left img { width: 100%; }  /*Fill size image*/
+
+.blog-left h2 {  font-weight: 600;  
+                 margin: 30px 0px;
+                 color: #222;
+}
+
+.blog-left p {  color: #999; 
+                padding: 0px; 
+}
+
+.blog-right { flex-basis: 32%; }
+
+.blog-right h3 {  background: rgb(180, 111, 245);
+                  color: white;
+                  padding: 7px 0px;
+                  font-size: 16px;
+                  margin-bottom: 20px;
+}
+
+.blog-right div {  display: flex;  /*This is only for div inside blog-right*/
+                   padding: 8px;
+                   color: #555;
+                   justify-content: space-between; /*Seperate them*/
+                   align-items: center;    /*Box is small thats why it is not seen*/
+                   box-sizing: border-box;
+}
+
+.comment-box {  border: 2px solid #ccc; 
+                margin: 50px 0px;
+                padding: 10px 20px;
+}
+
+.comment-box h3 { text-align: left; }
+
+.comment-form input, .comment-form textarea {  width: 100%;  /*To cover whole area under the comment box*/
+                                               padding: 10px;
+                                               margin: 15px 0px;
+                                               box-sizing: border-box;
+                                               border: none;  
+                                               outline: none;  /*Assigning outline a value of 0 or none will remove the browser's default focus style.*/
+                                               background: #f0f0f0;
+
+}
+
+.comment-form button { margin: 10px 0px; }
+
+@media(max-width: 700px) {
+    .sub-header h1 {
+        font-size: 19px;
+    }
+}
+
+/* ------Contact us page------ */
+
+.location {  width: 80%; 
+             padding: 80px 0px;
+             margin: auto;
+}
+
+.location iframe { width: 100%; }
+
+.contact-us { width: 80%;  
+              margin: auto;
+}
+
+.contact-col { flex-basis: 48%; 
+               margin-bottom: 30px;
+}
+
+.contact-col div {  display: flex;
+                    align-items: center;  /*Sets icons in center*/
+                    margin-bottom: 40px;    /*Gives space between the divs in contact-col*/
+}
+
+.contact-col div .fas { font-size: 28px;
+                        color: red;
+                        margin: 10px;  /*Margins the icon and space between text and icon*/
+                        margin-right: 30px;  /*Margins the text p and h5 tag*/
+                        /* border: 2px solid black; */
+}
+
+.contact-col div p { padding: 0px; } /*Sets p tag close to h5 tag*/
+
+.contact-col div h5 { font-size: 20px;
+                      margin-bottom: 5px;  /*Gives bottom between the h5 and p tags*/
+                      font-weight: 400;
+                      color: #555;
+}
+
+.contact-col input, .contact-col textarea { width: 100%;
+                                            padding: 15px;
+                                            margin-bottom: 17px;
+                                            outline: none;
+                                            border: 2px solid #ccc;  
+                                            box-sizing: border-box;    /*Sets the size for responsive also*/                                   
+}
